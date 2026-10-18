@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Electric XR250R | Jasper Mahn</title>
+  <meta name="description" content="Build log of a student converting a 1984 Honda XR250R into an electric dirt bike: design decisions, battery math, budget and progress.">
+  <meta property="og:title" content="Electric XR250R: converting a 1984 Honda dirt bike to electric">
+  <meta property="og:description" content="A school-year engineering build by Jasper Mahn, documented session by session.">
+  <meta property="og:image" content="https://jaspermahn.github.io/photos/hero.jpg">
+  <meta property="og:url" content="https://jaspermahn.github.io/">
+  <link rel="canonical" href="https://jaspermahn.github.io/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2317191c'/%3E%3Cpath d='M18 4 9 18h6l-2 10 10-15h-6z' fill='%23d52b1e'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#top"><span data-name>Jasper Mahn</span><span class="brand-sub">Electric XR250R</span></a>
+      <nav aria-label="Sections">
+        <a href="#targets">Targets</a>
+        <a href="#progress">Progress</a>
+        <a href="#design">Design</a>
+        <a href="#build-log">Build log</a>
+        <a href="#budget">Budget</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div class="hero-text">
+          <h1>Converting a 1984 Honda XR250R into an electric dirt bike</h1>
+          <p class="lede">I'm rebuilding a $100 rolling chassis around a 72-volt mid-drive motor and a battery pack I'm building myself. The targets: 40&nbsp;mph, 20 miles per charge, under $1,500, and done within one school year.</p>
+          <p class="now"><span class="now-dot" aria-hidden="true"></span><span><strong>Now:</strong> <span data-summary></span></span></p>
+          <dl class="tally">
+            <div><dt>Hands-on sessions</dt><dd data-sessions>0</dd></div>
+            <div><dt>Hours logged</dt><dd data-hours>0</dd></div>
+            <div><dt>Spent so far</dt><dd data-spent>$0</dd></div>
+          </dl>
+        </div>
+
+        <figure class="hero-photo">
+          <img src="photos/hero.jpg" alt="The red 1984 Honda XR250R frame with its blue 250R seat, standing in a dry field before teardown" width="2000" height="1500">
+          <dl class="plate" aria-label="Project details">
+            <div><dt>Model</dt><dd>Honda XR250R</dd></div>
+            <div><dt>Frame built</dt><dd>October 1983</dd></div>
+            <div><dt>Drive</dt><dd>72 V mid-drive</dd></div>
+            <div><dt>Builder</dt><dd data-name>Jasper Mahn</dd></div>
+            <div><dt>Current phase</dt><dd class="plate-phase" data-phase></dd></div>
+          </dl>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="targets" aria-labelledby="targets-h">
+      <div class="wrap">
+        <h2 id="targets-h">The targets</h2>
+        <p class="section-intro">Every design decision below traces back to these four numbers.</p>
+        <div class="table-scroll">
+          <table class="spec">
+            <thead><tr><th scope="col">Requirement</th><th scope="col">Target</th><th scope="col">What it means for the design</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Top speed</th><td class="target">40+ mph</td><td>About 3.5 kW of continuous power to hold 40 mph on flat ground, carrying a rider of about 180 lb plus the battery.</td></tr>
+              <tr><th scope="row">Range</th><td class="target">~20 miles</td><td>At a planning estimate of 75 Wh per mile, the pack needs at least 1,500 Wh of usable energy.</td></tr>
+              <tr><th scope="row">Budget</th><td class="target">Under $1,500</td><td>Used and salvaged parts wherever they can be tested and trusted; new parts where safety depends on them.</td></tr>
+              <tr><th scope="row">Timeline</th><td class="target">One school year</td><td>A phased plan, so each stage can be finished, tested and documented before the next one starts.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="progress" aria-labelledby="progress-h">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="progress-h">Build progress</h2>
+          <p class="section-meta" data-phase-count></p>
+        </div>
+        <ol class="phases" id="phases"></ol>
+      </div>
+    </section>
+
+    <section class="section" id="design" aria-labelledby="design-h">
+      <div class="wrap">
+        <h2 id="design-h">Design decisions</h2>
+        <p class="section-intro">What I chose, why, and what I ruled out.</p>
+
+        <div class="decisions">
+          <article class="decision">
+            <h3>Frame: a full-size steel XR250R</h3>
+            <div class="decision-body">
+              <p><strong>Chose</strong> a mid-1980s Honda XR250R rolling chassis (frame, Pro-Link swingarm, wheels, forks, no engine) for $100. Its frame plate says it was built in October 1983 as a 1984 model.</p>
+              <p><strong>Why:</strong> a full-size steel frame has the geometry and strength for EV torque and battery weight, and steel is easy to weld new motor mounts and a battery box onto.</p>
+              <p><strong>Ruled out:</strong> mini bikes like the YZ80 and KX80, and the DR100, whose thinner tubing and forks aren't built for this load.</p>
+              <p><strong>Known weak points I'm inspecting:</strong> steering head bearings, swingarm pivot bushings, cracking at the Pro-Link mount and steering head gusset, subframe fatigue, the drum brake and the soft damper-rod forks.</p>
+            </div>
+          </article>
+
+          <article class="decision">
+            <h3>Drive: mid-drive, not a hub motor</h3>
+            <div class="decision-body">
+              <p><strong>Chose</strong> a mid-drive motor that sits where the engine was and drives the stock chain. That keeps the original swingarm, and the gearing multiplies torque for hill climbing.</p>
+              <p><strong>Target motor:</strong> QS138 70H V3, 3,000 W continuous and 5,500 to 6,000 W peak at 72 V, with an EM150-2SP controller (a Fardriver ND72680 is the alternative). It's sold as a kit for dirt bike conversions for about $615.</p>
+              <p><strong>Trade-off:</strong> 3,000 W continuous is right at, or a little under, the roughly 3.5 kW I estimate is needed to hold 40 mph. Peak power covers hills and acceleration, but long top-speed runs may make the motor run warm. The larger QS138 90H or QS165 would add headroom, so I'm still weighing them.</p>
+            </div>
+          </article>
+
+          <article class="decision">
+            <h3>Battery chemistry: lithium-ion 18650 cells</h3>
+            <div class="decision-body">
+              <p><strong>Chose</strong> lithium-ion 18650 cells in a 20-series pack for 72 V nominal.</p>
+              <p><strong>Ruled out:</strong> LiFePO4. It has better cycle life and is safer, but reaching the same voltage takes 23 cells in series instead of 20 and adds a lot of weight, which is a poor fit for a dirt bike.</p>
+              <p><strong>Battery management:</strong> a JBD 20S smart BMS (60 A or 80 A, with Bluetooth), chosen over Daly.</p>
+            </div>
+          </article>
+
+          <article class="decision">
+            <h3>Cell source: salvaged, but only if they test well</h3>
+            <div class="decision-body">
+              <p><strong>Plan A</strong> was 140 new name-brand cells (Samsung 30Q or LG MJ1 class) from verified sellers like 18650batterystore, Fogstar and Illumn. Cheap marketplace listings often sell counterfeit cells with fake brand names.</p>
+              <p><strong>Now:</strong> I have a salvaged Tesla battery pack with one blown section. If its good cells pass testing, they could cover the pack for a fraction of the cost.</p>
+              <p><strong>Before I trust them:</strong> confirm the exact cell model and datasheet, make sure each cell can handle about 6 A continuous, and capacity- and load-test a sample batch. Building the pack is the highest-risk phase, so it's done with my mentor.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="battery" aria-labelledby="battery-h">
+      <div class="wrap">
+        <h2 id="battery-h">Sizing the battery</h2>
+        <p class="section-intro">How the range and speed targets turn into a pack of 140 cells.</p>
+        <ol class="math">
+          <li><span class="math-step">Voltage</span><span class="math-work">72 V motor ÷ 3.6 V per cell</span><span class="math-result">20 cells in series (20S)</span></li>
+          <li><span class="math-step">Energy</span><span class="math-work">20 miles × 75 Wh per mile</span><span class="math-result">1,500 Wh minimum</span></li>
+          <li><span class="math-step">Capacity</span><span class="math-work">1,500 Wh ÷ 72 V ≈ 21 Ah, plus a buffer</span><span class="math-result">24.5 Ah target</span></li>
+          <li><span class="math-step">Parallel groups</span><span class="math-work">24.5 Ah ÷ 3.5 Ah per cell</span><span class="math-result">7 in parallel: 20S7P, 140 cells</span></li>
+          <li><span class="math-step">Peak current</span><span class="math-work">6,000 W rated peak ÷ 72 V ≈ 83 A, split across 7 cells</span><span class="math-result">~12 A per cell</span></li>
+          <li><span class="math-step">Continuous current</span><span class="math-work">3,000 W ÷ 72 V ≈ 42 A, split across 7 cells</span><span class="math-result">~6 A per cell</span></li>
+          <li><span class="math-step">Weight</span><span class="math-work">140 cells, before the BMS, box and wiring</span><span class="math-result">~15 lb</span></li>
+        </ol>
+        <p class="footnote">The EM150 controller can draw up to 150 A from the battery unless its current limit is set lower, which would be over 20 A per cell in a 7P pack. Its battery-current limit has to be set to match the cells and the BMS.</p>
+        <p class="footnote">75 Wh per mile is a blended estimate for mixed easy and rough terrain, based on similar electric dirt bikes. Gentle riding should beat 20 miles; hard riding on rough ground could drop it to 15 to 17.</p>
+      </div>
+    </section>
+
+    <section class="section" id="build-log" aria-labelledby="log-h">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="log-h">Build log</h2>
+          <p class="section-meta">Oldest first. Updated <span data-updated></span>. <a href="#build-log" data-latest>Jump to the latest entry</a></p>
+        </div>
+        <div class="log" id="log"></div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="budget" aria-labelledby="budget-h">
+      <div class="wrap">
+        <h2 id="budget-h">Parts and budget</h2>
+        <div class="budget-bar" id="budget-bar" role="img" aria-label="Budget used so far">
+          <span class="bar-spent"></span><span class="bar-planned"></span>
+        </div>
+        <dl class="budget-key">
+          <div><dt><span class="key key-spent"></span>Spent</dt><dd data-total-spent></dd></div>
+          <div><dt><span class="key key-planned"></span>Planned</dt><dd data-total-planned></dd></div>
+          <div><dt><span class="key key-left"></span>Left of $1,500</dt><dd data-total-left></dd></div>
+        </dl>
+        <div class="table-scroll">
+          <table class="parts">
+            <thead><tr><th scope="col">Part</th><th scope="col">Status</th><th scope="col" class="num">Cost</th></tr></thead>
+            <tbody id="parts"></tbody>
+          </table>
+        </div>
+        <p class="budget-note" data-budget-note></p>
+      </div>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="about-h">
+      <div class="wrap about">
+        <img class="about-photo" src="photos/about.jpg" alt="Jasper sitting next to the XR250R frame, pointing at the bike" loading="lazy" width="2000" height="1500">
+        <div>
+          <h2 id="about-h">About me</h2>
+          <p>I'm <span data-name>Jasper Mahn</span>, a high school student in the <span data-location>San Juan Islands, Washington</span>, and I want to study mechanical engineering. This is my first vehicle build. I'm learning hands-on with mentors who help with welding, wiring and mechanics, and an experienced mentor is supervising the battery work.</p>
+          <p>I log every work session here: what I did, what went wrong and what I learned.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>Built and documented by <span data-name>Jasper Mahn</span>. Last updated <span data-updated></span>.</p>
+    </div>
+  </footer>
+
+  <dialog id="viewer" class="viewer" aria-label="Photo viewer">
+    <figure>
+      <img alt="">
+      <figcaption></figcaption>
+    </figure>
+    <div class="viewer-controls">
+      <button type="button" class="viewer-prev" aria-label="Previous photo">‹</button>
+      <span class="viewer-count"></span>
+      <button type="button" class="viewer-next" aria-label="Next photo">›</button>
+      <button type="button" class="viewer-close">Close</button>
+    </div>
+  </dialog>
+
+  <script src="site.js"></script>
+  <script src="content.js"></script>
+</body>
+</html>
