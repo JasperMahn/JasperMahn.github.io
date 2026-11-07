@@ -378,7 +378,6 @@ entry({
     "In the original pack, each thin wire bond acts as a fuse for its cell, so one shorted cell can't drain the rest of its group",
     "Without individual cell fuses, protection depends on the BMS and a main fuse",
     "A cell's outer wrap is its insulation: the steel can underneath is the negative terminal, so an unwrapped cell shorts easily",
-    "18650 cans are nickel-plated steel, which is why they stick to iron",
     "How to test cell voltage with a clamp meter",
   ],
   photos: [
