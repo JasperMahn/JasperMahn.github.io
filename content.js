@@ -11,8 +11,8 @@ status({
   name: "Jasper Mahn",
   location: "San Juan Islands, Washington",
   phase: "Battery",
-  summary: "Taking apart a blown Tesla battery pack to find the faulty section and test the good cells.",
-  updated: "2026-10-18",
+  summary: "Harvesting cells from the salvaged Tesla pack: working out the most efficient way to get them out undamaged, and testing them.",
+  updated: "2026-11-06",
 });
 
 
@@ -351,5 +351,47 @@ entry({
     "2026-10-14-01.jpg | Taking the module apart",
     "2026-10-14-02.jpg | Cells exposed with the interconnect plates removed",
     "2026-10-14-03.jpg | Interconnect plates labeled so the layout is documented",
+  ],
+});
+
+entry({
+  date: "2026-11-04",
+  kind: "work",
+  title: "Harvesting the first cells",
+  hours: 3.5,
+  progress: [
+    "Tested ways to free cells from the plastic holder: cutting the wire bonds, prying off the plates and tapping each cell out",
+    "Removed the first few test cells",
+    "Tested cell voltages with the shop's clamp meter",
+    "Emailed the battery mentor about whether the old wire bonds could be reused as fuses",
+  ],
+  challenges: [
+    "Cracking the plastic holder without impacting the cells: some cells came out dented",
+    "Every cell in one section read 0 V after showing a charge earlier, and the cause is still being tracked down",
+    "Reusing the leftover wire bonds as connections and fuses in the new pack doesn't look workable",
+    "The clamp meter's reading fluctuated on its own and at first showed 0 V even on a good cell",
+    "An efficient method for harvesting all of the pack's cells hasn't been settled yet",
+  ],
+  learned: [
+    "A dent in a cell's can can damage the layers inside and cause an internal short, so dented cells get set aside",
+    "Soldering directly to a cell overheats it, which is why packs are built by spot welding nickel strip",
+    "In the original pack, each thin wire bond acts as a fuse for its cell, so one shorted cell can't drain the rest of its group",
+    "Without individual cell fuses, protection depends on the BMS and a main fuse",
+    "A cell's outer wrap is its insulation: the steel can underneath is the negative terminal, so an unwrapped cell shorts easily",
+    "18650 cans are nickel-plated steel, which is why they stick to iron",
+    "How to test cell voltage with a clamp meter",
+  ],
+  photos: [
+    "2026-11-04-01.jpg | Insulated tools and rubber lineman's gloves for working on the live module",
+    "2026-11-04-02.jpg | One of the first harvested cells, with a piece of the plastic holder still on its end",
+    "2026-11-04-03.jpg | Prying along the side of the module",
+    "2026-11-04-04.jpg | Cutting the thin wire bonds that connect each cell to the plate",
+    "2026-11-04-05.jpg | Prying the plates off to reach the cells",
+    "2026-11-04-06.jpg | Residue and corrosion on one cell's top",
+    "2026-11-04-07.jpg | Side of the module, showing the plastic holder the cells sit in",
+    "2026-11-04-08.jpg | The shop's clamp meter, used to test the harvested cells",
+  ],
+  videos: [
+    "2026-11-04-01.mp4 | Tapping a cell out of its plastic holder",
   ],
 });
